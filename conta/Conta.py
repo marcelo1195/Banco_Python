@@ -2,7 +2,7 @@ from utils import calcular_idade
 from pessoa import Pessoa
 
 class Conta:
-    def __init__(self, titular, numero, agencia, saldo=0, tipo=0, emprestimo=0):
+    def __init__(self, titular, numero, agencia, saldo, tipo=0, emprestimo=0):
         self._titular = titular
         self._numero = numero
         self._agencia = agencia
@@ -81,7 +81,7 @@ class Conta:
             print("Saldo insuficiente.")
 
     def solicitar_emprestimo(self, quantia):
-        if self.tipo == 2 or self.tipo == 3:
+        if self.tipo == 3 or self.tipo == 4:
             print("Conta não autorizada a efetuar empréstimo.")
         else:
             self.emprestimo += quantia
