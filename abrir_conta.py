@@ -10,6 +10,7 @@ from utils import validar_formato_data
 
 #validador de data de nascimento
 def abrir_conta():
+    #recebendo inputs do usuário
     while True:
         nome = input("Digite seu nome: ")
         sobrenome = input("Digite seu sobrenome: ")
@@ -17,7 +18,8 @@ def abrir_conta():
         cpf = input("Difite seu cpf: ")
         idade = utils.calcular_idade(datetime.strptime(data_nascimento, "%d/%m/%Y"))
 
-        print(f"\nnome: {nome}, sobrenome: {sobrenome}, cpf: {cpf}, data de nascimento: {data_nascimento}, idade: {idade} anos")
+        print(
+            f"\nnome: {nome}, sobrenome: {sobrenome}, cpf: {cpf}, data de nascimento: {data_nascimento}, idade: {idade} anos")
         correto = (input("Os dados estão corretos ? (S/N): ").upper())
         if correto != "S":
             continue
@@ -32,6 +34,7 @@ def abrir_conta():
     numero_conta = str(hash(cpf))[:8]
     agencia = "0001"
 
+    #instanciando a conta
     while True:
         print("\nQual tipo de conta deseja abrir ?")
         print("Digite 1 para abrir conta corrente")
@@ -49,7 +52,8 @@ def abrir_conta():
             saldo_inicial = float(input("Digite o saldo inicial: "))
             emprestimo = 2500
             limite_cheque_especial = 500
-            conta = ContaCorrente(pessoa, numero_conta, agencia, saldo_inicial, emprestimo, tipo=1, limite_cheque_especial=limite_cheque_especial)
+            conta = ContaCorrente(pessoa, numero_conta, agencia, saldo_inicial, emprestimo, tipo=1,
+                                  limite_cheque_especial=limite_cheque_especial)
             print("Cota corrente criada com sucesso !")
 
 
@@ -68,7 +72,7 @@ def abrir_conta():
             print("Conta salario criada com sucesso !")
 
         elif tipo_conta == "4":
-            if idade <16 or idade >25:
+            if idade < 16 or idade > 25:
                 print("Idade não permitida para uma conta estudantil.")
                 continue
             saldo_inicial = float(input("Digite o saldo inicial: "))
@@ -93,12 +97,14 @@ def abrir_conta():
 
         break
 
+
 def main():
     while True:
         abrir_conta()
         opcao = input("\nDeseja abrir outra conta ? (S/N): ".upper())
         if opcao != 'S':
             break
+
 
 if __name__ == '__main__':
     main()

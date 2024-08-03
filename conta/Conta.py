@@ -1,4 +1,3 @@
-from utils import calcular_idade
 from pessoa import Pessoa
 
 class Conta:
