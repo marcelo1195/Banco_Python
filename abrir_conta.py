@@ -17,13 +17,12 @@ def abrir_conta():
         cpf = input("Difite seu cpf: ")
         idade = utils.calcular_idade(datetime.strptime(data_nascimento, "%d/%m/%Y"))
 
-        print("\nOs dados estão corretos ?")
-        print(f"nome: {nome}, sobrenome: {sobrenome}, cpf: {cpf}, data de nascimento: {data_nascimento}, idade: {idade} anos")
-        correto = (input("(S/N): ").upper())
-        if correto == "S":
-            break
-        else:
+        print(f"\nnome: {nome}, sobrenome: {sobrenome}, cpf: {cpf}, data de nascimento: {data_nascimento}, idade: {idade} anos")
+        correto = (input("Os dados estão corretos ? (S/N): ").upper())
+        if correto != "S":
             continue
+        else:
+            break
 
     #instanciando um objeto pessoa
     pessoa = Pessoa(nome, sobrenome, data_nascimento, cpf)
@@ -94,6 +93,12 @@ def abrir_conta():
 
         break
 
+def main():
+    while True:
+        abrir_conta()
+        opcao = input("\nDeseja abrir outra conta ? (S/N): ".upper())
+        if opcao != 'S':
+            break
 
 if __name__ == '__main__':
-    abrir_conta()
+    main()
