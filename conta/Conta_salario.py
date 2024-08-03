@@ -2,7 +2,7 @@ from conta import Conta
 
 class ContaSalario(Conta):
     def __init__(self, titular, numero, agencia, saldo):
-        super().__init__(titular, numero, agencia, saldo, tipo=4,)
+        super().__init__(titular, numero, agencia, saldo, tipo=3,)
 
     def receber_salario(self, quantia):
         self.depositar(quantia)
