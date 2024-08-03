@@ -1,4 +1,4 @@
-from conta import Conta
+from conta.Conta import Conta
 
 class ContaEstudantil(Conta):
     def __init__(self, titular, numero, agencia, saldo, emprestimo = 0):
