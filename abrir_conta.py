@@ -55,6 +55,7 @@ def abrir_conta():
             conta = ContaCorrente(pessoa, numero_conta, agencia, saldo_inicial, emprestimo, tipo=1,
                                   limite_cheque_especial=limite_cheque_especial)
             print("Cota corrente criada com sucesso !")
+            return conta
 
 
         elif tipo_conta == "2":
@@ -65,11 +66,13 @@ def abrir_conta():
             else:
                 conta = ContaInvestimento(pessoa, numero_conta, agencia, saldo_inicial)
                 print("Conta de investimento criada com sucesso !")
+                return conta
 
         elif tipo_conta == "3":
             saldo_inicial = 0
             conta = ContaSalario(pessoa, numero_conta, agencia, saldo_inicial)
             print("Conta salario criada com sucesso !")
+            return conta
 
         elif tipo_conta == "4":
             if idade < 16 or idade > 25:
@@ -78,6 +81,7 @@ def abrir_conta():
             saldo_inicial = float(input("Digite o saldo inicial: "))
             conta = ContaEstudantil(pessoa, numero_conta, agencia, saldo_inicial, emprestimo=0)
             print("Conta estudantil criada com sucesso !")
+            return conta
 
         else:
             print("Tipo de conta inválido, Tente novamente \n")
