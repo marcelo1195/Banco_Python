@@ -2,6 +2,9 @@ from abrir_conta import  abrir_conta
 from acessar_conta import acessar_conta
 from painel_de_controle import exibir_menu
 
+# Variavel de controle para calcular os numeros das contas
+proximo_numero_conta = 000
+
 contas = []
 
 def main():

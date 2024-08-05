@@ -1,6 +1,8 @@
 import re
 from datetime import datetime
 
+# Necessario para gerar os numeros das contas
+proximo_numero_conta = 000
 def calcular_idade(data_nascimento):
     hoje = datetime.today()
     return hoje.year - data_nascimento.year - ((hoje.month, hoje.day) < (data_nascimento.month, data_nascimento.day))
@@ -18,3 +20,9 @@ def validar_formato_data():
                 print("Data inválida. Por favor, insira uma data existente.")
         else:
             print("Formato de data inválido. Por favor, use o formato DD/MM/YYYY.")
+
+def gerar_numero_conta():
+    global proximo_numero_conta
+    numero_conta = str(proximo_numero_conta)
+    proximo_numero_conta += 1
+    return numero_conta

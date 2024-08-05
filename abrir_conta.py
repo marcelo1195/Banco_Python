@@ -31,7 +31,7 @@ def abrir_conta():
     idade = pessoa.idade()
 
     # gerando o npumero de conta e agencia
-    numero_conta = str(hash(cpf))[:8]
+    numero_conta = utils.gerar_numero_conta()
     agencia = "0001"
 
     #instanciando a conta
@@ -50,10 +50,7 @@ def abrir_conta():
 
         elif tipo_conta == "1":
             saldo_inicial = float(input("Digite o saldo inicial: "))
-            emprestimo = 2500
-            limite_cheque_especial = 500
-            conta = ContaCorrente(pessoa, numero_conta, agencia, saldo_inicial, emprestimo, tipo=1,
-                                  limite_cheque_especial=limite_cheque_especial)
+            conta = ContaCorrente(pessoa, numero_conta, agencia, saldo_inicial)
             print("Cota corrente criada com sucesso !")
             return conta
 
